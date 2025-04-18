@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem,QMessageBox
 from PyQt5.QtCore import Qt
 from DesignWindows.ventana_tabla import Ui_MainWindow as Ui_VentanaTabla
 from ControllerWindows.simulador_procesos import SimuladorProcesos
-from ControllerWindows.controller_ventana_resultados import ControllerVentanaResultados
+from ControllerWindows.controller_ventana_calculo import ControllerVentanaResultados
 
 class ControllerVentanaTabla(QMainWindow):
     def __init__(self, num_procesos):

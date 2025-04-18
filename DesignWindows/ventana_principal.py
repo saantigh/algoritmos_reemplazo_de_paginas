@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_menu.ui'
+# Form implementation generated from reading ui file 'ventana_principal.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -9,8 +9,6 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
-
 
 
 class Ui_MainWindow(object):
@@ -22,7 +20,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.titulo_ventana = QtWidgets.QLabel(self.centralwidget)
-        self.titulo_ventana.setGeometry(QtCore.QRect(100, 10, 631, 91))
+        self.titulo_ventana.setGeometry(QtCore.QRect(80, 30, 631, 71))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Ignored, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -30,105 +28,86 @@ class Ui_MainWindow(object):
         self.titulo_ventana.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Arial Rounded MT")
-        font.setPointSize(30)
+        font.setPointSize(12)
         font.setBold(True)
         font.setItalic(False)
+        font.setWeight(87)
         self.titulo_ventana.setFont(font)
-        self.titulo_ventana.setStyleSheet("font: 700 30pt \"Arial Rounded MT\";\n"
+        self.titulo_ventana.setStyleSheet("font: 700 12pt \"Arial Rounded MT\";\n"
 "color:Blue")
         self.titulo_ventana.setObjectName("titulo_ventana")
         self.boton_salir = QtWidgets.QPushButton(self.centralwidget)
         self.boton_salir.setGeometry(QtCore.QRect(700, 510, 81, 31))
-        self.boton_salir.setStyleSheet("""
-        QPushButton {
-                background-color: rgb(127, 127, 127);
-        }
-        QPushButton:hover {
-                background-color: rgb(200, 200, 200);
-        }
-        """)
+        self.boton_salir.setStyleSheet("background-color: rgb(127, 127, 127);")
         self.boton_salir.setObjectName("boton_salir")
         self.boton_siguiente = QtWidgets.QPushButton(self.centralwidget)
-        self.boton_siguiente.setGeometry(QtCore.QRect(310, 420, 181, 51))
-        self.boton_siguiente.setStyleSheet("""
-        QPushButton {
-                background-color: rgb(20, 20, 255);
-                font: 700 12pt "Arial Rounded MT";
-        }
-        QPushButton:hover {
-                background-color: rgb(50, 50, 255);
-        }
-        """)
+        self.boton_siguiente.setGeometry(QtCore.QRect(310, 410, 181, 51))
+        self.boton_siguiente.setStyleSheet("background-color: rgb(20, 20, 255);\n"
+"font: 700 12pt \"Arial Rounded MT\";")
         self.boton_siguiente.setObjectName("boton_siguiente")
         self.icono_windows = QtWidgets.QLabel(self.centralwidget)
-        self.icono_windows.setGeometry(QtCore.QRect(470, 170, 101, 131))
+        self.icono_windows.setGeometry(QtCore.QRect(350, 110, 101, 131))
         self.icono_windows.setStyleSheet("image: url(:/icono/icono+windows3.png);")
         self.icono_windows.setText("")
         self.icono_windows.setObjectName("icono_windows")
         self.icono_apple = QtWidgets.QLabel(self.centralwidget)
-        self.icono_apple.setGeometry(QtCore.QRect(540, 90, 101, 111))
+        self.icono_apple.setGeometry(QtCore.QRect(170, 120, 101, 111))
         self.icono_apple.setStyleSheet("image: url(:/icono/icono+apple.png);")
         self.icono_apple.setText("")
         self.icono_apple.setObjectName("icono_apple")
         self.icono_linux = QtWidgets.QLabel(self.centralwidget)
-        self.icono_linux.setGeometry(QtCore.QRect(610, 180, 101, 111))
+        self.icono_linux.setGeometry(QtCore.QRect(510, 120, 101, 111))
         self.icono_linux.setStyleSheet("image: url(:/icono/icono+linux2.png);")
         self.icono_linux.setText("")
         self.icono_linux.setObjectName("icono_linux")
-        self.icono_procesos = QtWidgets.QLabel(self.centralwidget)
-        self.icono_procesos.setGeometry(QtCore.QRect(20, 110, 171, 211))
-        self.icono_procesos.setStyleSheet("image: url(:/icono/icono+proceso.png);")
-        self.icono_procesos.setText("")
-        self.icono_procesos.setObjectName("icono_procesos")
-        self.icono_FIFO = QtWidgets.QLabel(self.centralwidget)
-        self.icono_FIFO.setGeometry(QtCore.QRect(200, 160, 71, 31))
-        self.icono_FIFO.setStyleSheet("font: 700 16pt \"Times New Roman\";\n"
+        self.label_FIFO = QtWidgets.QLabel(self.centralwidget)
+        self.label_FIFO.setGeometry(QtCore.QRect(40, 110, 71, 31))
+        self.label_FIFO.setStyleSheet("font: 700 16pt \"Times New Roman\";\n"
 "color:Red;")
-        self.icono_FIFO.setObjectName("icono_FIFO")
-        self.icono_SJF = QtWidgets.QLabel(self.centralwidget)
-        self.icono_SJF.setGeometry(QtCore.QRect(200, 200, 71, 31))
-        self.icono_SJF.setStyleSheet("font: 700 16pt \"Times New Roman\";\n"
+        self.label_FIFO.setObjectName("label_FIFO")
+        self.label_LRU = QtWidgets.QLabel(self.centralwidget)
+        self.label_LRU.setGeometry(QtCore.QRect(40, 140, 71, 31))
+        self.label_LRU.setStyleSheet("font: 700 16pt \"Times New Roman\";\n"
 "color:Green;")
-        self.icono_SJF.setObjectName("icono_SJF")
-        self.icono_round_robin = QtWidgets.QLabel(self.centralwidget)
-        self.icono_round_robin.setGeometry(QtCore.QRect(210, 240, 121, 31))
-        self.icono_round_robin.setStyleSheet("font: 700 16pt \"Times New Roman\";\n"
-"color:Black;")
-        self.icono_round_robin.setObjectName("icono_round_robin")
+        self.label_LRU.setObjectName("label_LRU")
         self.subtitulo_procesos_a_simular = QtWidgets.QLabel(self.centralwidget)
-        self.subtitulo_procesos_a_simular.setGeometry(QtCore.QRect(150, 320, 471, 61))
+        self.subtitulo_procesos_a_simular.setGeometry(QtCore.QRect(160, 250, 491, 91))
         self.subtitulo_procesos_a_simular.setStyleSheet("font: 700 21pt \"Times New Roman\";\n"
 "color:Blue;")
         self.subtitulo_procesos_a_simular.setObjectName("subtitulo_procesos_a_simular")
-        self.numero_de_procesos = QtWidgets.QComboBox(self.centralwidget)
-        self.numero_de_procesos.setGeometry(QtCore.QRect(360, 380, 80, 24))
-        self.numero_de_procesos.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.numero_de_procesos.setObjectName("numero_de_procesos")
-        self.numero_de_procesos.addItem("")
-        self.numero_de_procesos.addItem("")
-        self.numero_de_procesos.addItem("")
-        self.numero_de_procesos.addItem("")
-        self.numero_de_procesos.addItem("")
-        self.numero_de_procesos.addItem("")
-        self.numero_de_procesos.addItem("")
-        self.numero_de_procesos.addItem("")
-        self.numero_de_procesos.addItem("")
+        self.label_OPTIMO = QtWidgets.QLabel(self.centralwidget)
+        self.label_OPTIMO.setGeometry(QtCore.QRect(20, 170, 111, 31))
+        self.label_OPTIMO.setStyleSheet("font: 700 16pt \"Times New Roman\";\n"
+"color:Blue;")
+        self.label_OPTIMO.setObjectName("label_OPTIMO")
+        self.label_FIFO_MEJORADO = QtWidgets.QLabel(self.centralwidget)
+        self.label_FIFO_MEJORADO.setGeometry(QtCore.QRect(40, 200, 71, 31))
+        self.label_FIFO_MEJORADO.setStyleSheet("font: 700 16pt \"Times New Roman\";\n"
+"color: rgb(255, 8, 251);")
+        self.label_FIFO_MEJORADO.setObjectName("label_FIFO_MEJORADO")
+        self.campo_ingresar_cadena = QtWidgets.QLineEdit(self.centralwidget)
+        self.campo_ingresar_cadena.setGeometry(QtCore.QRect(140, 350, 541, 41))
+        self.campo_ingresar_cadena.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.campo_ingresar_cadena.setStyleSheet("background-color: rgb(39, 39, 39);\n"
+"font: 63 16pt \"Cascadia Mono SemiBold\";\n"
+"color: rgb(255, 255, 255);")
+        self.campo_ingresar_cadena.setAlignment(QtCore.Qt.AlignCenter)
+        self.campo_ingresar_cadena.setObjectName("campo_ingresar_cadena")
         self.titulo_ventana.raise_()
         self.boton_salir.raise_()
         self.boton_siguiente.raise_()
         self.subtitulo_procesos_a_simular.raise_()
-        self.numero_de_procesos.raise_()
         self.icono_windows.raise_()
         self.icono_apple.raise_()
         self.icono_linux.raise_()
-        self.icono_procesos.raise_()
-        self.icono_FIFO.raise_()
-        self.icono_SJF.raise_()
-        self.icono_round_robin.raise_()
+        self.label_FIFO.raise_()
+        self.label_LRU.raise_()
+        self.label_OPTIMO.raise_()
+        self.label_FIFO_MEJORADO.raise_()
+        self.campo_ingresar_cadena.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 33))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -140,27 +119,23 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Algoritmos de despacho"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.titulo_ventana.setToolTip(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.titulo_ventana.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.titulo_ventana.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">ALGORITMOS DE DESPACHO</span></p></body></html>"))
+        self.titulo_ventana.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-style:italic;\">ALGORITMOS DE REMPLAZO</span></p><p align=\"center\"><span style=\" font-size:14pt; font-style:italic;\">DE PAGINAS</span></p></body></html>"))
         self.boton_salir.setText(_translate("MainWindow", "SALIR"))
         self.boton_siguiente.setText(_translate("MainWindow", "SIGUIENTE"))
-        self.icono_FIFO.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.icono_FIFO.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">FIFO</span></p></body></html>"))
-        self.icono_SJF.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.icono_SJF.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">SJF</span></p></body></html>"))
-        self.icono_round_robin.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.icono_round_robin.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">Round Robin</span></p></body></html>"))
-        self.subtitulo_procesos_a_simular.setText(_translate("MainWindow", "<html><head/><body><p align=\"right\"><span style=\" font-size:20pt; font-style:italic; text-decoration: underline;\">Ingrese el número de procesos a simular</span></p></body></html>"))
-        self.numero_de_procesos.setItemText(0, _translate("MainWindow", "2"))
-        self.numero_de_procesos.setItemText(1, _translate("MainWindow", "3"))
-        self.numero_de_procesos.setItemText(2, _translate("MainWindow", "4"))
-        self.numero_de_procesos.setItemText(3, _translate("MainWindow", "5"))
-        self.numero_de_procesos.setItemText(4, _translate("MainWindow", "6"))
-        self.numero_de_procesos.setItemText(5, _translate("MainWindow", "7"))
-        self.numero_de_procesos.setItemText(6, _translate("MainWindow", "8"))
-        self.numero_de_procesos.setItemText(7, _translate("MainWindow", "9"))
-        self.numero_de_procesos.setItemText(8, _translate("MainWindow", "10"))
+        self.label_FIFO.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.label_FIFO.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">FIFO</span></p></body></html>"))
+        self.label_LRU.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.label_LRU.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">LRU</p></body></html>"))
+        self.subtitulo_procesos_a_simular.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Ingrese una cadena sin espacios que</p><p align=\"center\"> simule las paginas que están entrando</p></body></html>"))
+        self.label_OPTIMO.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.label_OPTIMO.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">OPTIMO</p></body></html>"))
+        self.label_FIFO_MEJORADO.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.label_FIFO_MEJORADO.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">FIFO +</span></p></body></html>"))
+        self.campo_ingresar_cadena.setToolTip(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.campo_ingresar_cadena.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.campo_ingresar_cadena.setText(_translate("MainWindow", "23235388262434727364"))
         
 from DesignWindows.imagenes import imagenes_new

@@ -21,10 +21,10 @@ background-color: qlineargradient(spread:repeat, x1:1, y1:1, x2:1, y2:0, stop:0 
    <widget class="QLabel" name="titulo_ventana">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>10</y>
+      <x>80</x>
+      <y>30</y>
       <width>631</width>
-      <height>91</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -36,7 +36,8 @@ background-color: qlineargradient(spread:repeat, x1:1, y1:1, x2:1, y2:0, stop:0 
     <property name="font">
      <font>
       <family>Arial Rounded MT</family>
-      <pointsize>30</pointsize>
+      <pointsize>12</pointsize>
+      <weight>87</weight>
       <italic>false</italic>
       <bold>true</bold>
      </font>
@@ -48,11 +49,11 @@ background-color: qlineargradient(spread:repeat, x1:1, y1:1, x2:1, y2:0, stop:0 
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 700 30pt &quot;Arial Rounded MT&quot;;
+     <string notr="true">font: 700 12pt &quot;Arial Rounded MT&quot;;
 color:Blue</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;ALGORITMOS DE DESPACHO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-style:italic;&quot;&gt;ALGORITMOS DE REMPLAZO&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-style:italic;&quot;&gt;DE PAGINAS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_salir">
@@ -75,7 +76,7 @@ color:Blue</string>
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>420</y>
+      <y>410</y>
       <width>181</width>
       <height>51</height>
      </rect>
@@ -91,8 +92,8 @@ font: 700 12pt &quot;Arial Rounded MT&quot;;</string>
    <widget class="QLabel" name="icono_windows">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>170</y>
+      <x>350</x>
+      <y>110</y>
       <width>101</width>
       <height>131</height>
      </rect>
@@ -107,8 +108,8 @@ font: 700 12pt &quot;Arial Rounded MT&quot;;</string>
    <widget class="QLabel" name="icono_apple">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>90</y>
+      <x>170</x>
+      <y>120</y>
       <width>101</width>
       <height>111</height>
      </rect>
@@ -123,8 +124,8 @@ font: 700 12pt &quot;Arial Rounded MT&quot;;</string>
    <widget class="QLabel" name="icono_linux">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>180</y>
+      <x>510</x>
+      <y>120</y>
       <width>101</width>
       <height>111</height>
      </rect>
@@ -136,27 +137,11 @@ font: 700 12pt &quot;Arial Rounded MT&quot;;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="icono_procesos">
+   <widget class="QLabel" name="label_FIFO">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>40</x>
       <y>110</y>
-      <width>171</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/icono/icono+proceso.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="icono_FIFO">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>160</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -172,11 +157,11 @@ color:Red;</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;FIFO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="icono_SJF">
+   <widget class="QLabel" name="label_LRU">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>200</y>
+      <x>40</x>
+      <y>140</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -189,15 +174,32 @@ color:Red;</string>
 color:Green;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;SJF&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;LRU&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="icono_round_robin">
+   <widget class="QLabel" name="subtitulo_procesos_a_simular">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>240</y>
-      <width>121</width>
+      <x>160</x>
+      <y>250</y>
+      <width>491</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 21pt &quot;Times New Roman&quot;;
+color:Blue;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ingrese una cadena sin espacios que&lt;/p&gt;&lt;p align=&quot;center&quot;&gt; simule las paginas que están entrando&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_OPTIMO">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -206,100 +208,74 @@ color:Green;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 700 16pt &quot;Times New Roman&quot;;
-color:Black;</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Round Robin&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="subtitulo_procesos_a_simular">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>320</y>
-      <width>471</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 700 21pt &quot;Times New Roman&quot;;
 color:Blue;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:20pt; font-style:italic; text-decoration: underline;&quot;&gt;Ingrese el número de procesos a simular&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;OPTIMO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="numero_de_procesos">
+   <widget class="QLabel" name="label_FIFO_MEJORADO">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>380</y>
-      <width>80</width>
-      <height>24</height>
+      <x>40</x>
+      <y>200</y>
+      <width>71</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
-    <item>
-     <property name="text">
-      <string>2</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>3</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>4</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>5</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>6</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>7</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>8</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>9</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>10</string>
-     </property>
-    </item>
+    <property name="styleSheet">
+     <string notr="true">font: 700 16pt &quot;Times New Roman&quot;;
+color: rgb(255, 8, 251);</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;FIFO +&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="campo_ingresar_cadena">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>350</y>
+      <width>541</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(39, 39, 39);
+font: 63 16pt &quot;Cascadia Mono SemiBold&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>23235388262434727364</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <zorder>titulo_ventana</zorder>
    <zorder>boton_salir</zorder>
    <zorder>boton_siguiente</zorder>
    <zorder>subtitulo_procesos_a_simular</zorder>
-   <zorder>numero_de_procesos</zorder>
    <zorder>icono_windows</zorder>
    <zorder>icono_apple</zorder>
    <zorder>icono_linux</zorder>
-   <zorder>icono_procesos</zorder>
-   <zorder>icono_FIFO</zorder>
-   <zorder>icono_SJF</zorder>
-   <zorder>icono_round_robin</zorder>
+   <zorder>label_FIFO</zorder>
+   <zorder>label_LRU</zorder>
+   <zorder>label_OPTIMO</zorder>
+   <zorder>label_FIFO_MEJORADO</zorder>
+   <zorder>campo_ingresar_cadena</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -307,14 +283,14 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>33</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="iconos/iconos.qrc"/>
+  <include location="imagenes/imagenes.qrc"/>
   <include location="imagenes/imagenes.qrc"/>
  </resources>
  <connections/>
