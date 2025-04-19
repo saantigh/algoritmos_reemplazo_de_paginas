@@ -136,6 +136,6 @@ class Ui_MainWindow(object):
         self.label_FIFO_MEJORADO.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">FIFO +</span></p></body></html>"))
         self.campo_ingresar_cadena.setToolTip(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.campo_ingresar_cadena.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.campo_ingresar_cadena.setText(_translate("MainWindow", "23235388262434727364"))
+        self.campo_ingresar_cadena.setText(_translate("MainWindow", "7012030423032120"))
         
 from DesignWindows.imagenes import imagenes_new

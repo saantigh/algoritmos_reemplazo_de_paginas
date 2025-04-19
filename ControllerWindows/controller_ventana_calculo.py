@@ -1,9 +1,8 @@
 # ControllerWindows/controller_ventana_calculo.py
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QTableWidgetItem
 from DesignWindows.ventana_calculo import Ui_MainWindow as Ui_VentanaCalculo
-#from ControllerWindows.controller_ventana_calculo import ControllerVentanaResultados
 # Importa tus módulos de algoritmos de reemplazo de páginas
 from Algoritmos.algoritmos import Algoritmos
 
@@ -76,6 +75,8 @@ class ControllerVentanaCalculo(QMainWindow):
         self.ui.boton_calcular_algoritmo.setEnabled(True)
 
     def _calcular_algoritmo(self):
+        from ControllerWindows.controller_ventana_resultados import ControllerVentanaResultados
+
         if self.marcos is None:
             QMessageBox.warning(self, "Error", "Debe confirmar primero el número de marcos.")
             return
@@ -101,10 +102,15 @@ class ControllerVentanaCalculo(QMainWindow):
             return
 
         # Abre la ventana de resultados y le pasa los datos
-        #self.result_window = ControllerVentanaResultados(
-        #    matrix, faults_per_column, total_faults, self.algoritmo
-        #)
-        #self.result_window.show()
+        self.result_window = ControllerVentanaResultados(
+            referencia=self.referencias,
+            matrix=matrix,
+            faults=faults_per_column,
+            total_faults=total_faults,
+            algoritmo=self.algoritmo,
+            parent_window=self
+        )
+        self.result_window.show()
 
         # (Opcional) podrías esconder esta ventana si no quieres que quede visible
         # self.hide()
