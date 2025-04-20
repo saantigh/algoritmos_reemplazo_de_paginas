@@ -187,99 +187,16 @@ class Algoritmos:
 
         return matriz, fallos_col, total_fallos
     
-
-    #def fifo_mejorado(self, referencia, num_marcos):
-        """
-        FIFO + segunda oportunidad (Second‑Chance).
-        
-        Parámetros:
-          - referencia: lista de páginas referenciadas.
-          - num_marcos: número de marcos disponibles.
-        
-        Retorna:
-          - matrix: lista de (num_marcos+1) listas de longitud len(referencia):
-              • las primeras num_marcos filas son el contenido de cada marco (con '*' si tiene bit)
-              • la última fila muestra '*' en las columnas donde hubo fallo.
-          - fallos: lista de '' o '*' indicando fallo por referencia.
-          - total_fallos: entero con el total de fallos de página.
-        """
-        """
-        n = len(referencia)
-        # Cada marco: dict con 'page' y 'bit'
-        frames = [{'page': None, 'bit': False} for _ in range(num_marcos)]
-        # Cola con los índices de marcos en orden FIFO
-        queue = deque(range(num_marcos))
-        
-        # Preparamos la matriz de salida
-        matrix = [['' for _ in range(n)] for _ in range(num_marcos + 1)]
-        fallos = [''] * n
-        total_fallos = 0
-
-        def snapshot(col):
-            #Volca estado de frames en matrix[0..num_marcos-1][col]
-            for f in range(num_marcos):
-                p = frames[f]['page']
-                bit = frames[f]['bit']
-                matrix[f][col] = f"{p}{'*' if bit else ''}" if p is not None else ''
-
-        for i, page in enumerate(referencia):
-            # Copiamos la columna anterior para empezar
-            if i > 0:
-                for r in range(num_marcos + 1):
-                    matrix[r][i] = matrix[r][i-1]
-
-            # Caso HIT
-            present = [fr['page'] for fr in frames]
-            if page in present:
-                idx = present.index(page)
-                # Bit de oportunidad: solo uno a la vez
-                for fr in frames:
-                    fr['bit'] = False
-                frames[idx]['bit'] = True
-                fallos[i] = ''
-            else:
-                # FALLA
-                total_fallos += 1
-                fallos[i] = '*'
-                # ¿Hay marco libre?
-                free = next((f for f,fr in enumerate(frames) if fr['page'] is None), None)
-                if free is not None:
-                    # Lo asignamos
-                    frames[free]['page'] = page
-                    frames[free]['bit'] = False
-                    # y movemos ese marco al final de la cola
-                    queue.remove(free)
-                    queue.append(free)
-                else:
-                    # Segunda oportunidad
-                    while True:
-                        victim = queue.popleft()
-                        if frames[victim]['bit']:
-                            # tenía oportunidad → se la quitamos y lo mandamos al final
-                            frames[victim]['bit'] = False
-                            queue.append(victim)
-                        else:
-                            # este marco no tiene bit → lo reemplazamos
-                            frames[victim]['page'] = page
-                            frames[victim]['bit'] = False
-                            queue.append(victim)
-                            break
-
-            # Guardamos snapshot y la fila de fallos
-            snapshot(i)
-            matrix[num_marcos][i] = fallos[i]
-
-        return matrix, fallos, total_fallos
-        """
+    """
     def fifo_mejorado(self, referencia, num_marcos):
-        """
+        
         FIFO + segunda oportunidad (segunda vida):
           - Cada vez que un page hit, se limpia todo bit y se marca ese marco con bit=True.
           - Al fallar y no haber free frame, se elige victim siguiendo la FIFO original
             (insertion_time más antiguo), pero si victim.bit==True, lo resetea (bit=False)
             y pasa al siguiente más antiguo. Al final reemplaza el primer victim con bit=False.
         Retorna: (matriz, fallos_col, total_fallos)
-        """
+        
         n = len(referencia)
         # Cada marco lleva: página, bit (segunda vida) y tiempo de inserción
         frames = [
@@ -344,7 +261,85 @@ class Algoritmos:
             matrix[num_marcos][i] = fallos_col[i]
 
         return matrix, fallos_col, total_fallos
-        
+    """
+
+    def fifo_mejorado(self, referencia, num_marcos):
+        """
+        FIFO + segunda oportunidad (segunda vida):
+        - Cada vez que un page hit, se limpia todo bit y se marca ese marco con bit=True.
+        - Al fallar y no haber free frame, se elige victim siguiendo la FIFO original
+            (insertion_time más antiguo), pero si victim.bit==True, lo resetea (bit=False)
+            y pasa al siguiente más antiguo. Al final reemplaza el primer victim con bit=False.
+        Retorna: (matriz, fallos_col, total_fallos)
+        - matriz: num_marcos filas x len(referencia) columnas
+        - fallos_col: lista de '*' o '' de longitud len(referencia)
+        - total_fallos: entero
+        """
+        n = len(referencia)
+        # Cada marco lleva: página, bit (segunda vida) y tiempo de inserción
+        frames = [
+            {'page': None, 'bit': False, 'insertion_time': float('inf')}
+            for _ in range(num_marcos)
+        ]
+
+        # PREPARO la matriz únicamente para los estados de marcos:
+        matrix     = [['' for _ in range(n)] for _ in range(num_marcos)]
+        # FALLOS en una lista aparte:
+        fallos_col = [''] * n
+        total_fallos = 0
+
+        for i, page in enumerate(referencia):
+            # 1) HIT?
+            pages_in_frames = [fr['page'] for fr in frames]
+            if page in pages_in_frames:
+                # Limpio todos los bits y doy segunda vida al marco tocado
+                idx = pages_in_frames.index(page)
+                for fr in frames:
+                    fr['bit'] = False
+                frames[idx]['bit'] = True
+                fallos_col[i] = ''
+            else:
+                # MISS
+                total_fallos += 1
+                fallos_col[i] = '*'
+                # ¿Marco libre?
+                free_idx = next((j for j,fr in enumerate(frames) if fr['page'] is None), None)
+                if free_idx is not None:
+                    frames[free_idx]['page'] = page
+                    frames[free_idx]['bit'] = False
+                    frames[free_idx]['insertion_time'] = i
+                else:
+                    # FIFO puro por insertion_time
+                    orden = sorted(range(num_marcos),
+                                key=lambda j: frames[j]['insertion_time'])
+                    # Buscamos victim sin bit; si lo tiene, lo limpiamos y seguimos
+                    for victim in orden:
+                        if frames[victim]['bit']:
+                            frames[victim]['bit'] = False
+                            continue
+                        # reemplazamos aquí
+                        frames[victim]['page'] = page
+                        frames[victim]['bit'] = False
+                        frames[victim]['insertion_time'] = i
+                        break
+
+            # 2) Snapshot del estado de los marcos en la columna i
+            for f in range(num_marcos):
+                pg = frames[f]['page']
+                if pg is None:
+                    matrix[f][i] = ''
+                else:
+                    matrix[f][i] = f"{pg}{'*' if frames[f]['bit'] else ''}"
+
+            # 3) Devuelvo **sólo**:
+            #    - matrix: estados de marcos (n filas x len columnas)
+            #    - fallos_col: lista de '*' o ''
+            #    - total_fallos: número
+
+        return matrix, fallos_col, total_fallos
+
+
+
 
 # ------------------ EJEMPLO DE USO ------------------
 if __name__ == "__main__":
